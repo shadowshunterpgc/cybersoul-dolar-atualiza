@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.google.gson.Gson;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +23,9 @@ import java.util.List;
 public class DolarController {
 
     private final String url = "https://economia.awesomeapi.com.br";
+    
+    @Autowired
+    DolarFeatureUC dolarFeatureUc;
 
     @ApiOperation(value = "Return a dolar list")
     @ResponseStatus(HttpStatus.OK)
@@ -29,7 +34,7 @@ public class DolarController {
             @RequestParam("moeda") String moeda,
             @RequestParam("quantidade") Integer quantidade) throws JsonMappingException, JsonProcessingException {
 
-        DolarFeatureUC dolarFeatureUc = new DolarFeatureUC();
+//        DolarFeatureUC dolarFeatureUc = new DolarFeatureUC();
         RestTemplate rt = new RestTemplate();
         Gson gson = new Gson();
         String json = rt.getForObject(url + "/" + moeda + "/" + quantidade, String.class);
