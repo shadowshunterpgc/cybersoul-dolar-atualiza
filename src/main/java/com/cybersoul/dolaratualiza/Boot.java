@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.cybersoul.dolaratualiza.h2")
 public class Boot {
 
 	public static void main(String[] args) {
