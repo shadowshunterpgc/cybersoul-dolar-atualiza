@@ -2,11 +2,13 @@ package com.cybersoul.dolaratualiza;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class CybersoulDolarAtualizaApplication {
+@ComponentScan(basePackages = "com.cybersoul.dolaratualiza.h2")
+public class Boot {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CybersoulDolarAtualizaApplication.class, args);
+		SpringApplication.run(Boot.class, args);
 	}
 }

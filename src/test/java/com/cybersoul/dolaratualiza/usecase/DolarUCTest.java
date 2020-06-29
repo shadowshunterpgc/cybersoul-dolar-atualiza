@@ -47,7 +47,7 @@ public class DolarUCTest {
 		for (int i=0; i < dolar.length; i++) {
 			listDolar.add(dolar[i]);
 		}
-		assertNotNull(h2Gateway.saveAll(listDolar));
+		assertNotNull(h2Gateway.execute(listDolar));
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class DolarUCTest {
 		for (int i=0; i < dolar.length; i++) {
 			listDolar.add(dolar[i]);
 		}
-		assertNotNull(mysqlGateway.saveAll(listDolar));
+		assertNotNull(mysqlGateway.execute(listDolar));
 		
 	}
 	
@@ -70,6 +70,6 @@ public class DolarUCTest {
 		for (int i=0; i < dolar.length; i++) {
 			listDolar.add(dolar[i]);
 		}
-		assertNotNull(kafkaGateway.saveAll(listDolar));
+		assertNotNull(kafkaGateway.execute(listDolar));
 	}
 }

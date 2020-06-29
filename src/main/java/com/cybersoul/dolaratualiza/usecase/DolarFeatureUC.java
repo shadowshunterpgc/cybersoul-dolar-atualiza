@@ -2,21 +2,20 @@ package com.cybersoul.dolaratualiza.usecase;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.cybersoul.dolaratualiza.domain.Dolar;
-import com.cybersoul.dolaratualiza.gateway.kafka.KafkaGateway;
-import com.cybersoul.dolaratualiza.gateway.mysql.MysqlGateway;
+import com.cybersoul.dolaratualiza.gateway.h2.H2Gateway;
 
-public class DolarFeatureUC {
+@Service
+public class DolarFeatureUC implements DolarFeature {
 
-	private KafkaGateway kafkaGateway;	
-	private MysqlGateway mysqlGateway;
-
+	@Autowired
+	private H2Gateway h2Gateway;
+	
 	public List<Dolar> execute(List<Dolar> listDolar) {
-		kafkaGateway = new KafkaGateway();
-		mysqlGateway = new MysqlGateway();
-		
-		kafkaGateway.saveAll(listDolar);
-		mysqlGateway.saveAll(listDolar);
+		h2Gateway.execute(listDolar);
 		return listDolar;
 	}
 }

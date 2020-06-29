@@ -5,5 +5,5 @@ import java.util.List;
 import com.cybersoul.dolaratualiza.domain.Dolar;
 
 public interface DolarFeature {
-	List<Dolar> saveAll(List<Dolar> listDolar);
+	List<Dolar> execute(List<Dolar> listDolar);
 }
