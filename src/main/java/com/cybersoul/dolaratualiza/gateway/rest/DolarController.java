@@ -25,7 +25,7 @@ public class DolarController {
     private final String url = "https://economia.awesomeapi.com.br";
     
     @Autowired
-    DolarFeatureUC dolarFeatureUc;
+    private DolarFeatureUC dolarFeatureUc;
 
     @ApiOperation(value = "Return a dolar list")
     @ResponseStatus(HttpStatus.OK)

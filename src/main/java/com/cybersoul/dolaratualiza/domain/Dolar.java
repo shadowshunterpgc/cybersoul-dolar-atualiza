@@ -10,14 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-@Builder
 @Data
+@Builder
 @AllArgsConstructor
-@Entity
 public class Dolar {
-	@Id
-	@GeneratedValue
-	private UUID id;
+	public UUID id;
 	private String code;
 	private String codein;
 	private String name;
@@ -30,4 +27,5 @@ public class Dolar {
 	private String timestamp;
 	private String create_date;
 }
+
 
