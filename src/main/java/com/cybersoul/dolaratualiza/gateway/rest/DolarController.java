@@ -34,7 +34,6 @@ public class DolarController {
             @RequestParam("moeda") String moeda,
             @RequestParam("quantidade") Integer quantidade) throws JsonMappingException, JsonProcessingException {
 
-//        DolarFeatureUC dolarFeatureUc = new DolarFeatureUC();
         RestTemplate rt = new RestTemplate();
         Gson gson = new Gson();
         String json = rt.getForObject(url + "/" + moeda + "/" + quantidade, String.class);
