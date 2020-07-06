@@ -32,7 +32,7 @@ public class H2Gateway {
 				.varBid(listDolar.get(0).getVarBid())
 				.build();
 		h2Repository.save(entity);
-		System.out.println("Saving in MySQL: " + listDolar);
+		System.out.println("Saving in H2: " + listDolar);
 		return listDolar;
 	}
 }
