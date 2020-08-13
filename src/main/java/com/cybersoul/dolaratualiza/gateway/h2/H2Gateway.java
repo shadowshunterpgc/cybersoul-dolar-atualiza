@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Component
@@ -31,8 +32,12 @@ public class H2Gateway {
 				.timestamp(listDolar.get(0).getTimestamp())
 				.varBid(listDolar.get(0).getVarBid())
 				.build();
-		h2Repository.save(entity);
-		System.out.println("Saving in H2: " + listDolar);
+		if (Objects.nonNull(entity)) {
+			h2Repository.save(entity);
+			System.out.println("Saving in H2: " + listDolar);
+		} else {
+			throw new NullPointerException();
+		}
 		return listDolar;
 	}
 }
