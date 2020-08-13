@@ -81,6 +81,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.evosuite/evosuite-master -->
+		<dependency>
+			<groupId>org.evosuite</groupId>
+			<artifactId>evosuite-master</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
