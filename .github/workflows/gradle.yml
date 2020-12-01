@@ -29,6 +29,8 @@ jobs:
       # uses: SonarSource/sonarcloud-github-action@f4c6e4d91ea9785ec823eaeed459042606123402
       uses: SonarSource/sonarcloud-github-action@v1.4
       env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         key: pablogomezcorrea_cybersoul-dolar-atualiza
       with: 
         # Additional arguments to the sonarcloud scanner
