@@ -16,6 +16,10 @@ repositories {
     jcenter()
 }
 
+plugins {
+  id "org.sonarqube" version "3.0"
+}
+
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'2.3.0.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.3.0.RELEASE'
