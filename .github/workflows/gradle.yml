@@ -29,6 +29,7 @@ jobs:
       # uses: SonarSource/sonarcloud-github-action@f4c6e4d91ea9785ec823eaeed459042606123402
       uses: SonarSource/sonarcloud-github-action@v1.4
       with: 
+        key: pablogomezcorrea_cybersoul-dolar-atualiza
         # Additional arguments to the sonarcloud scanner
         # args: 
         # Set the sonar.projectBaseDir analysis property
