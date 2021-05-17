@@ -6,5 +6,5 @@ import com.cybersoul.dolaratualiza.domain.Dolar;
 import com.cybersoul.dolaratualiza.entity.DolarEntity;
 
 public interface DolarFeature {
-	List<Dolar> execute(List<Dolar> listDolar);
+	List<Dolar> execute(String moeda, Integer quantidade);
 }

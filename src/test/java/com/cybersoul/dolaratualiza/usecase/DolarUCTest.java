@@ -61,15 +61,4 @@ public class DolarUCTest {
 		assertNotNull(mysqlGateway.execute(listDolar));
 		
 	}
-	
-	@Test
-	public void consultaDolarGravaKafka() throws JsonMappingException, JsonProcessingException {
-		Dolar[] dolar = consultaDolar();
-		List<Dolar> listDolar = new ArrayList<>();
-		
-		for (int i=0; i < dolar.length; i++) {
-			listDolar.add(dolar[i]);
-		}
-		assertNotNull(kafkaGateway.execute(listDolar));
-	}
 }

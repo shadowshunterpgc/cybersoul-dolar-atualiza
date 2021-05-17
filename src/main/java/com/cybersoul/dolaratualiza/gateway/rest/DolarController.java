@@ -28,9 +28,6 @@ public class DolarController {
     @Autowired
     private DolarFeatureUC dolarFeatureUc;
 
-    @Autowired
-    private DolarApiExternal dolarApiExternal;
-
     @ApiOperation(value = "Return a dolar list")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/converte")
@@ -38,7 +35,7 @@ public class DolarController {
             @RequestParam("moeda") String moeda,
             @RequestParam("quantidade") Integer quantidade) throws JsonMappingException, JsonProcessingException {
 
-        dolarFeatureUc.execute(dolarApiExternal.getDolarList(moeda, quantidade));
+        dolarFeatureUc.execute(moeda, quantidade);
 
         return ResponseEntity.ok(HttpStatus.OK);
     }
