@@ -1,6 +1,7 @@
 package com.cybersoul.dolaratualiza.gateway.rest;
 
 import com.cybersoul.dolaratualiza.domain.Dolar;
+import com.cybersoul.dolaratualiza.gateway.api.DolarApiExternal;
 import com.cybersoul.dolaratualiza.usecase.DolarFeatureUC;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -27,6 +28,9 @@ public class DolarController {
     @Autowired
     private DolarFeatureUC dolarFeatureUc;
 
+    @Autowired
+    private DolarApiExternal dolarApiExternal;
+
     @ApiOperation(value = "Return a dolar list")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/converte")
@@ -34,17 +38,7 @@ public class DolarController {
             @RequestParam("moeda") String moeda,
             @RequestParam("quantidade") Integer quantidade) throws JsonMappingException, JsonProcessingException {
 
-        RestTemplate rt = new RestTemplate();
-        Gson gson = new Gson();
-        String json = rt.getForObject(url + "/" + moeda + "/" + quantidade, String.class);
-        List<Dolar> listDolar = new ArrayList<>();
-        Dolar[] dolar = gson.fromJson(json, Dolar[].class);
-
-        for (int i = 0; i < dolar.length; i++) {
-            listDolar.add(dolar[i]);
-        }
-
-        dolarFeatureUc.execute(listDolar);
+        dolarFeatureUc.execute(dolarApiExternal.getDolarList(moeda, quantidade));
 
         return ResponseEntity.ok(HttpStatus.OK);
     }
