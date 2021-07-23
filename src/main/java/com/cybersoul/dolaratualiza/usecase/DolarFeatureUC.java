@@ -2,6 +2,7 @@ package com.cybersoul.dolaratualiza.usecase;
 
 import java.util.List;
 
+import com.cybersoul.dolaratualiza.entity.DolarEntity;
 import com.cybersoul.dolaratualiza.gateway.api.DolarApiExternal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class DolarFeatureUC implements DolarFeature {
 	
 	public List<Dolar> execute(String moeda, Integer quantidade) {
 
-		return h2Gateway.execute(dolarApiExternal.getDolarList(moeda, quantidade));
+		Dolar dolar = new Dolar();
+		List<Dolar> listDolar = dolarApiExternal.getDolarList(moeda, quantidade);
+		h2Gateway.execute(dolar.getDolarList(listDolar));
+		return listDolar;
 	}
 }
