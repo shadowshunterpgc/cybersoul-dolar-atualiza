@@ -20,7 +20,7 @@ import java.util.List;
 
 @Api(value = "API Rest Convert")
 @RestController
-@RequestMapping("/dolar")
+@RequestMapping("/currency")
 public class DolarController {
 
     private final String url = "https://economia.awesomeapi.com.br";
