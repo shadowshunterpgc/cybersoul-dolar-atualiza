@@ -2,7 +2,7 @@
 usuario: sa \
 senha: sa \
 JDBC: jdbc:h2:~/cybersoul \
-http://localhost:8080/h2-console 
+http://localhost:8080/h2-console
 
 # API converte dolar para real e grava no banco na memória 
 Grava valor do dolar na base
