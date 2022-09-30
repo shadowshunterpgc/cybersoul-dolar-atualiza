@@ -1,6 +1,6 @@
 package com.cybersoul.dolaratualiza.entity;
 
-import com.cybersoul.dolaratualiza.domain.Dolar;
+import com.cybersoul.dolaratualiza.domain.Currency;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,9 +16,9 @@ import java.util.UUID;
 @Entity
 @AllArgsConstructor
 @Table(name="Dolar")
-public class DolarEntity {
+public class CurrencyEntity {
 
-    public DolarEntity() { }
+    public CurrencyEntity() { }
 
     @Id
     @GeneratedValue

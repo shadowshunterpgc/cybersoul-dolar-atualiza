@@ -1,6 +1,6 @@
 package com.cybersoul.dolaratualiza.usecase;
 
-import com.cybersoul.dolaratualiza.domain.Dolar;
+import com.cybersoul.dolaratualiza.domain.Currency;
 import com.cybersoul.dolaratualiza.gateway.h2.H2Gateway;
 import com.cybersoul.dolaratualiza.gateway.kafka.KafkaGateway;
 import com.cybersoul.dolaratualiza.gateway.mysql.MysqlGateway;
@@ -24,27 +24,27 @@ public class DolarUCTest {
 	MysqlGateway mysqlGateway = new MysqlGateway();
 	KafkaGateway kafkaGateway = new KafkaGateway();
 	
-	public Dolar[] consultaDolar() {
+	public Currency[] consultaDolar() {
 
 		Gson gson = new Gson();
 		RestTemplate rt = new RestTemplate();
 		String json = rt.getForObject(url + "/USD-BRL/1", String.class);
-		Dolar[] dolar = gson.fromJson(json, Dolar[].class);
+		Currency[] dolar = gson.fromJson(json, Currency[].class);
 		return dolar;
 	}
 	
 	@Test
 	public void consultaDolarTest() throws JsonMappingException, JsonProcessingException {
 
-		Dolar[] dolar = consultaDolar();
+		Currency[] dolar = consultaDolar();
 		assertEquals(dolar[0].getCode() + "-" + dolar[0].getCodein(),"USD-BRL");
 	}
 	
 	@Test
 	public void consultaDolarGravaH2() throws JsonMappingException, JsonProcessingException {
 
-		Dolar[] dolar = consultaDolar();
-		List<Dolar> listDolar = new ArrayList<>();
+		Currency[] dolar = consultaDolar();
+		List<Currency> listDolar = new ArrayList<>();
 		
 		for (int i=0; i < dolar.length; i++) {
 			listDolar.add(dolar[i]);
@@ -55,8 +55,8 @@ public class DolarUCTest {
 	@Test
 	public void consultaDolarGravaMysql() throws JsonMappingException, JsonProcessingException {
 
-		Dolar[] dolar = consultaDolar();
-		List<Dolar> listDolar = new ArrayList<>();
+		Currency[] dolar = consultaDolar();
+		List<Currency> listDolar = new ArrayList<>();
 		
 		for (int i=0; i < dolar.length; i++) {
 			listDolar.add(dolar[i]);

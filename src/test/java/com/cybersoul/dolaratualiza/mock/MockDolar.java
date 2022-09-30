@@ -1,13 +1,13 @@
 package com.cybersoul.dolaratualiza.mock;
 
 
-import com.cybersoul.dolaratualiza.entity.DolarEntity;
+import com.cybersoul.dolaratualiza.entity.CurrencyEntity;
 
 import java.util.UUID;
 
 public class MockDolar {
     public
-    DolarEntity entity = DolarEntity.builder()
+    CurrencyEntity entity = CurrencyEntity.builder()
             .id(UUID.randomUUID())
             .ask("")
             .bid("")

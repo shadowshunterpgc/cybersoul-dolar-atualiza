@@ -3,11 +3,7 @@ package com.cybersoul.dolaratualiza.domain;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import com.cybersoul.dolaratualiza.entity.DolarEntity;
+import com.cybersoul.dolaratualiza.entity.CurrencyEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class Dolar {
+public class Currency {
 	public UUID id;
 	private String code;
 	private String codein;
@@ -29,13 +25,13 @@ public class Dolar {
 	private String timestamp;
 	private String create_date;
 
-	public Dolar() {
+	public Currency() {
 
 	}
 
-	public DolarEntity getDolarList(List<Dolar> listDolar) {
+	public CurrencyEntity getDolarList(List<Currency> listDolar) {
 		listDolar.get(0).setId(UUID.randomUUID());
-		DolarEntity entity = DolarEntity.builder()
+		CurrencyEntity entity = CurrencyEntity.builder()
 				.id(listDolar.get(0).getId())
 				.ask(listDolar.get(0).getAsk())
 				.bid(listDolar.get(0).getBid())
